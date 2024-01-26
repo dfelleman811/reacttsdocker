@@ -1,0 +1,27 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: "latest"
+    commands:
+      - echo "Install Phase started..."
+      - echo "Installing create-react-app"
+      - npm install -g create-react-app
+      - echo "Install Phase complete"
+  pre-build:
+    commands:
+      - echo "Pre-Build Phase started..."
+      - echo "Installing Dependencies"
+      - npm install
+      - echo "Pre-Build Phase complete."
+  build: 
+    commands:
+      - echo "Build Phase started..."
+      - echo "Building React App"
+      - npm run build
+      - echo "Build Phase complete"
+artifacts:
+  base-directory: build/
+  files:
+    - "**/*"
